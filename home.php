@@ -40,7 +40,7 @@ $homepage = file_get_contents($newsurl);
                         <a href="http://trac.openturns.org/wiki/Modules">Modules</a><br>
                         <a href="http://trac.openturns.org/wiki/HowToContribute">How to contribute</a><br>
                         <a href="http://openturns.org/mailman/listinfo">Mailing list</a><br>
-                        <a href="http://trac.openturns.org/newticket">Report a problem</a>
+                        <a href="http://trac.openturns.org/wiki/BugTracking">Report a problem</a>
                     </div>
                     <div class="menu-td">
                         <div id="menu-head">Project</div>
