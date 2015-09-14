@@ -47,10 +47,10 @@ else
         <P class="description">The official OpenTURNS website</P>
         <UL class="sitemenu">
           <LI><A <?php if ($subwindow == 'home') echo 'class="active"'; ?> href="/?subwindow=home" title="Go to the OpenTURNS homepage.">Home</A></LI>
+          <LI><A <?php if ($subwindow == 'install' ) echo 'class="active"'; ?> href="/?subwindow=install" title="Installation instructions">Install</A></LI>
           <LI><A <?php if ($subwindow == 'doc') echo 'class="active"'; ?> href="/?subwindow=doc" title="Get OpenTURNS documentation.">Doc</A></LI>
           <LI><A <?php if ($subwindow == 'share') echo 'class="active"'; ?> href="/?subwindow=share" title="Go to the share place.">Share</A></LI>
           <LI><A <?php if ($subwindow == 'code') echo 'class="active"'; ?> href="https://github.com/openturns" target="_blank" title="Browse OpenTURNS source code.">Code</A></LI>
-          <LI><A <?php if ($subwindow == 'download') echo 'class="active"'; ?> href="http://sourceforge.net/projects/openturns/files" target="_blank" title="Download OpenTURNS.">Download</A></LI>
         </UL>
       </DIV>
 
@@ -67,14 +67,14 @@ case 'wiki':
 case 'share': 
   $suburl = 'http://trac.openturns.org/blog';
   break;
+case 'install':
+  $suburl = 'http://trac.openturns.org/wiki/HowToInstall';
+  break;
 case 'doc':
   $suburl = 'http://trac.openturns.org/wiki/Documentation';
   break;
 case 'code':
   $suburl = 'https://github.com/openturns';
-  break;
-case 'download':
-  $suburl = 'http://sourceforge.net/projects/openturns/files';
   break;
 default:
   $suburl = '/home.php';
