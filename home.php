@@ -25,7 +25,7 @@ $homepage = file_get_contents($newsurl);
                         <a href="http://trac.openturns.org/wiki/QuickStart">Quick Start Guide</a><br>
                         <a href="http://trac.openturns.org/wiki/FAQ" alt="Frequently Asked Questions">FAQ</a><br>
                         <a href="https://github.com/openturns/notebooks/blob/master/README.rst" target="_blank">Examples</a><br>
-                        <a href="http://trac.openturns.org/wiki/Documentation">Documentations</a><br>
+                        <a href="http://trac.openturns.org/wiki/Documentation">Documentation</a><br>
                         <a href="http://trac.openturns.org/wiki/Training">Training</a><br>
                     </div>
                     <div class="menu-td">
