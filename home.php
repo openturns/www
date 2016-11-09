@@ -30,15 +30,15 @@ $homepage = file_get_contents($newsurl);
                     </div>
                     <div class="menu-td">
                         <div id="menu-head">Installation</div>
-                        <a href="http://trac.openturns.org/wiki/HowToLinuxInstall">Linux</a><br>
-                        <a href="http://trac.openturns.org/wiki/HowToWindowsInstall">Windows</a><br>
-                        <a href="http://trac.openturns.org/wiki/HowToCondaInstall">Conda</a><br>
-                        <a href="http://trac.openturns.org/wiki/HowToInstallDevelopmentVersion">Developers</a>
+                        <a href="http://openturns.github.io/install.html#debian-ubuntu">Linux</a><br>
+                        <a href="http://openturns.github.io/install.html#windows">Windows</a><br>
+                        <a href="http://openturns.github.io/install.html#conda">Conda</a><br>
+                        <a href="http://openturns.github.io/install.html#from-sources">Developers</a>
                     </div>
                     <div class="menu-td">
 			<div id="menu-head">Community</div>
                         <a href="http://trac.openturns.org/wiki/Modules">Modules</a><br>
-                        <a href="http://trac.openturns.org/wiki/HowToContribute">How to contribute</a><br>
+                        <a href="http://openturns.github.io/developer_guide/developer_guide.html">How to contribute</a><br>
                         <a href="http://openturns.org/mailman/listinfo">Mailing list</a><br>
                         <a href="http://trac.openturns.org/wiki/BugTracking">Report a problem</a>
                     </div>
