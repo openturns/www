@@ -156,10 +156,10 @@
       <h1>OpenTURNS</h1>
       <h2>An Open source initiative for the Treatment<br>of Uncertainties, Risks'N Statistics</h2>
       <ul>
-        <li>Multivariate probabilistic modeling including dependance</li>
+        <li>Multivariate probabilistic modeling including dependence</li>
         <li>Numerical tools dedicated to the treatment of uncertainties</li>
         <li>Generic coupling to any type of physical model</li>
-        <li>Open source, LGPL licensed, C++ library</li>
+        <li>Open source, LGPL licensed, C++/Python library</li>
       </ul>
     </div>
   </div>
@@ -222,7 +222,7 @@
 <blockquote>
 <strong>Functional basis methods</strong>: <a href="http://openturns.github.io/user_manual/orthogonal_basis.html#orthogonal-univariate-function-families">orthogonal basis (polynomials, Fourier, Haar, Soize Ghanem)</a>, User-defined<br>
 <strong>Gaussian process regression</strong>: <a href="http://openturns.github.io/user_manual/response_surface/_generated/openturns.GeneralizedLinearModelAlgorithm.html">Generalized linear model (GLM)</a>, <a href="http://openturns.github.io/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html">Kriging</a><br>
-<strong>Spectral methods</strong>: <a href="http://openturns.github.io/user_manual/response_surface/_generated/openturns.FunctionalChaosAlgorithm.html">functional chaos (PCE...)</a>, low rank tensors<br>
+<strong>Spectral methods</strong>: <a href="http://openturns.github.io/user_manual/response_surface/_generated/openturns.FunctionalChaosAlgorithm.html">functional chaos (PCE...)</a>, <a href="http://openturns.github.io/user_manual/stochastic_process.html#karhunen-loeve-decomposition">Karhunen-Loeve</a>, low rank tensors<br>
 <!--<small class="float-right example-links"><p><a class="reference internal" href="http://scikit-learn.org/stable/auto_examples/index.html#cluster-examples"><span class="std std-ref">Examples</span></a></p>
 </small>-->
 </blockquote>
@@ -252,10 +252,10 @@
 <h2><a class="reference internal" href="http://openturns.github.io/user_manual/functions.html"><span class="std std-ref">Functional modeling</span></a>
 </h2>
 <blockquote>
-<strong>Numerical functions</strong>: analytical, Python-defined, basis<br>
-<strong>Function algebra</strong>: addition, product, composition<br>
+<strong>Numerical functions</strong>: analytical, <a href="http://openturns.github.io/user_manual/_generated/openturns.PythonFunction.html#openturns.PythonFunction">Python-defined</a>, basis<br>
+<strong>Function operators</strong>: addition, product, composition, gradients<br>
 <strong>Function transformation</strong>: linear combination, aggregation, marginal extraction<br>
-<strong>Polynomials</strong>: orthogonal, polynomial algebra<br>
+<strong>Polynomials</strong>: <a href="http://openturns.github.io/user_manual/orthogonal_basis.html"> orthogonal polynomial</a>,  algebra<br>
 <!--<small class="float-right example-links"><p><a class="reference internal" href="https://github.com/openturns/notebooks/blob/master/README.rst"><span class="std std-ref">Examples</span></a></p>
 </small>-->
 </blockquote>
@@ -270,8 +270,9 @@
 <strong>Integration</strong>: <a href="http://openturns.github.io/user_manual/_generated/openturns.GaussKronrod.html">Gauss-Kronrod</a>, ...<br>
 <strong>Optimization</strong>: <a href="http://openturns.github.io/user_manual/optimization.html">NLopt, Cobyla, TNC</a><br>
 <strong>Root finding</strong>: <a href="http://openturns.github.io/user_manual/_generated/openturns.Brent.html">Brent</a>, <a href="http://openturns.github.io/user_manual/_generated/openturns.Bisection.html">Bisection</a><br>
-<strong>Linear algrebra</strong>: LAPACK, HMat<br>
+<strong>Linear algrebra</strong>: LAPACK, <a href="http://openturns.github.io/user_manual/_generated/openturns.HMatrix.html">HMat</a><br>
 <strong>Interpolation</strong>: piecewise linear, piecewise Hermite<br>
+<strong>Least squares</strong>: SVD, QR, Cholesky, ...<br>
 <!--<small class="float-right example-links"><p><a class="reference internal" href="https://github.com/openturns/notebooks/blob/master/README.rst"><span class="std std-ref">Examples</span></a></p>
 </small>-->
 </blockquote>
@@ -306,7 +307,7 @@
 <!--             <li><em>Questions?</em> See <a href="http://scikit-learn.org/stable/faq.html">FAQ</a> and <a href="http://stackoverflow.com/questions/tagged/scikit-learn">stackoverflow</a></li> -->
             <li><em>Mailing list:</em> <a href="http://openturns.org/mailman/listinfo/users">users@openturns.org</a></li>
             <li><em>Publications:</em> <a href="https://arxiv.org/abs/1501.05242">baudin2015</a></li>
-            <li><em>Related software:</em> <a href="https://www.scipy.org/">SciPy</a>, <a href="http://scikit-learn.org">scikit-learn</a>, <a href="https://dakota.sandia.gov/">Dakota</a>, <a href="http://chaospy.readthedocs.io/en/master/">chaospy</a>, <a href="http://www.uqlab.com/">UQLab</a>, <a href="https://sourceforge.net/projects/uranie/">Uranie</a> </li>
+            <li><em>Related software:</em> <a href="https://www.scipy.org/">SciPy</a>, <a href="http://scikit-learn.org">scikit-learn</a>, <a href="https://dakota.sandia.gov/">Dakota</a>, <a href="http://www.uqlab.com/">UQLab</a>, <a href="https://sourceforge.net/projects/uranie/">Uranie</a> </li>
             </ul>
         </div>
 
