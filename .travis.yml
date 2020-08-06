@@ -15,14 +15,14 @@ script:
 after_success:
   - test "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "master" || exit 0
   - git clone --depth 1 https://${GH_TOKEN}@github.com/openturns/openturns.github.io.git
-  - mkdir -p openturns.github.io/www
-  - cp -r index.html _images _static bootstrap2 favicon.ico openturns.github.io/www
+  - mkdir -p openturns.github.io/openturns/www
+  - cp -r index.html _images _static bootstrap2 favicon.ico openturns.github.io/openturns/www
   - cd openturns.github.io
   - touch .nojekyll
   - git config user.email "support@travis-ci.com"
   - git config user.name "Travis CI"
   - git add -A .
-  - git commit -a -m "Travis build ${REPO_NAME} ${TRAVIS_BUILD_NUMBER}"
+  - git commit -a -m "Travis build www ${TRAVIS_BUILD_NUMBER}"
   - git push --quiet origin master > /dev/null 2>&1
 
 env:
