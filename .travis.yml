@@ -15,8 +15,8 @@ script:
 after_success:
   - test "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "master" || exit 0
   - git clone --depth 1 https://${GH_TOKEN}@github.com/openturns/openturns.github.io.git
-  - mkdir -p openturns.github.io/openturns/www
-  - cp -r index.html _images _static bootstrap2 favicon.ico openturns.github.io/openturns/www
+  - mkdir -p openturns.github.io/www
+  - cp -r * openturns.github.io/www
   - cd openturns.github.io
   - touch .nojekyll
   - git config user.email "support@travis-ci.com"
