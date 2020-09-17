@@ -1284,21 +1284,11 @@ li#other-versions {
   color: #000;
 }
 
-.fork-me {
-  z-index: 100;
-}
-
 
 @media all and (max-width: 780px) {
-  .fork-me {
-      display: none;
-  }
-
   .search_form {
     display: none;
   }
-
-
 
   div.content {
     margin-left: 200px;
