@@ -3,7 +3,7 @@ Legal informations
 The openturns.org site are properties of :
 
 - Électricité de France, SA au capital social de 911 085 545 euros, immatriculée au RCS de paris sous le numéro 552 081 312, dont le siège social est situé 22-30 avenue de Wagram 75008 PARIS, FRANCE.
-- Airbus Group, SAS au capital social de 818 758 000 euros, immatriculée au RCS de Paris sous le numéro 341 535 094, dont le siège social est situé 37 Boulevard de Montmorency 75116 PARIS, FRANCE.
+- Airbus SAS au capital social de 818 758 000 euros, immatriculée au RCS de Paris sous le numéro 341 535 094, dont le siège social est situé 2 Rond-Point Emile Dewoitine, 31700 Blagnac, FRANCE.
 - PHIMECA Engineering SA, SA au capital social de 229 900 euros, immatriculée au RCS de Clermont-Ferrand sous le numéro 439 210 477, dont le siège social est situé 34 rue de sarliève 63800 Cournon d'Auvergne, FRANCE.
 - IMACS, SARL au capital de 103 950 euros, immatriculée au RCS de Evry sous le numéro 398 727 750, dont le siège social est situé X-TEC Bat. 404, Ecole Polytechnique, 91128 Palaiseau cedex, FRANCE.
 - ONERA, EPIC, immatriculée au RCS de Evry sous le numéro 775 722 879, dont le siège social est situé Chemin de la hunière. 91123 Palaiseau - cedex, FRANCE.
