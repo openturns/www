@@ -10,5 +10,7 @@ The openturns.org site are properties of :
 
 The openturns.org site does not collect personal data and does not use cookies to collect personally identifiable information about you.
 
+A personal data protection correspondent has been appointed, he can be contacted at the following address: retd-i2l@edf.fr
+
 The OpenTURNS name and logo are registered trademarks.
 
