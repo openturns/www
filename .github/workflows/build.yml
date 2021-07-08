@@ -13,10 +13,10 @@ jobs:
       - name: Upload
         if: ${{ github.ref == 'refs/heads/master' }}
         run: |
-          git clone --depth 1 https://${{ secrets.GH_TOKEN }}@github.com/openturns/openturns.github.io.git
-          mkdir -p openturns.github.io/www
-          cp -r * openturns.github.io/www
-          cd openturns.github.io
+          git clone --depth 1 https://${{ secrets.GH_TOKEN }}@github.com/openturns/openturns.github.io.git /tmp/io
+          mkdir -p /tmp/io/www
+          cp -r * /tmp/io/www
+          cd /tmp/io
           touch .nojekyll
           git config user.email "support@travis-ci.com"
           git config user.name "GitHub Actions"
