@@ -1,0 +1,25 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: |
+          sudo apt-get install -y openjdk-8-jre
+          pip install html5validator
+          html5validator
+      - name: Upload
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          git clone --depth 1 https://${{ secrets.GH_TOKEN }}@github.com/openturns/openturns.github.io.git
+          mkdir -p openturns.github.io/www
+          cp -r * openturns.github.io/www
+          cd openturns.github.io
+          touch .nojekyll
+          git config user.email "support@travis-ci.com"
+          git config user.name "GitHub Actions"
+          git add -A .
+          git commit -a -m "GitHub Actions build www"
+          git push --quiet origin master > /dev/null 2>&1
