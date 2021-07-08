@@ -1,5 +1,6 @@
-.. image:: https://travis-ci.org/openturns/www.svg?branch=master
-    :target: https://travis-ci.org/openturns/www
+.. image:: https://github.com/openturns/www/actions/workflows/build.yml/badge.svg?branch=master
+    :target: https://github.com/openturns/www/actions/workflows/build.yml
+
 
 OpenTURNS website
 =================
