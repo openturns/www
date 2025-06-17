@@ -1,4 +1,3 @@
-from __future__ import print_function
 import openturns as ot
 from openturns.viewer import View
 
@@ -7,8 +6,8 @@ N = 10000
 distribution = ot.Normal(2)
 X = ot.RandomVector(distribution)
 f = ot.SymbolicFunction(["x", "y"], ["x^2+y^2"])
-Y = ot.RandomVector(f, X)
-event = ot.Event(Y, ot.Greater(), threshold)
+Y = ot.CompositeRandomVector(f, X)
+event = ot.ThresholdEvent(Y, ot.Greater(), threshold)
 algo = ot.ProbabilitySimulationAlgorithm(event, ot.MonteCarloExperiment(1))
 algo.setConvergenceStrategy(ot.Full())
 algo.setMaximumOuterSampling(N)

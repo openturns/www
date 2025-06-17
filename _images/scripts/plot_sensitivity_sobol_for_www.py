@@ -15,19 +15,18 @@ ot.Log.Show(ot.Log.NONE)
 
 im = ishigami_function.IshigamiModel()
 
-input_names = im.distributionX.getDescription()
+input_names = im.inputDistribution.getDescription()
 
 # %%
 n = 10000
-sampleX = im.distributionX.getSample(n)
+sampleX = im.inputDistribution.getSample(n)
 sampleY = im.model(sampleX)
 
 
 # %%
 size = 1000
-sie = ot.SobolIndicesExperiment(im.distributionX, size)
+sie = ot.SobolIndicesExperiment(im.inputDistribution, size)
 inputDesign = sie.generate()
-input_names = im.distributionX.getDescription()
 inputDesign.setDescription(input_names)
 inputDesign.getSize()
 

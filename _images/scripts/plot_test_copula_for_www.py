@@ -59,8 +59,8 @@ minPoint = [0.0] * 2
 maxPoint = [1.0] * 2
 pointNumber = [201] * 2
 graphCop = estimated.drawPDF(minPoint, maxPoint, pointNumber)
-levels = [graphCop.getDrawable(i).getLevels()[0] for i in range(numberOfContours)]
 contour = graphCop.getDrawable(0).getImplementation()
+levels = contour.getLevels()
 contour.setLegend("Gumbel")
 contour.setColor(copulaColor)
 contour.setLevels(levels)

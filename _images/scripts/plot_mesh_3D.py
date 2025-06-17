@@ -1,11 +1,10 @@
-from __future__ import print_function
 import openturns as ot
 from openturns.viewer import View
 from math import pi, sqrt
 from time import time
 
-ot.ResourceMap.SetAsUnsignedInteger( "OptimizationAlgorithm-DefaultMaximumIteration", 10000 )
-ot.ResourceMap.SetAsUnsignedInteger( "OptimizationAlgorithm-DefaultMaximumEvaluationNumber", 1000000)
+ot.ResourceMap.SetAsUnsignedInteger( "OptimizationAlgorithm-DefaultMaximumIterationNumber", 10000 )
+ot.ResourceMap.SetAsUnsignedInteger( "OptimizationAlgorithm-DefaultMaximumCallsNumber", 1000000)
 
 level = -4
 N = 50
@@ -29,12 +28,12 @@ for i in range(len(points)):
 print(formula)
 f = ot.SymbolicFunction(["x0", "x1", "x2"], ["-(" + formula + ")"])
 
-ls = ot.LevelSet(f, level)
+ls = ot.LevelSet(f, ot.Less(), level)
 print("build mesh")
 t0 = time()
-mesh1 = ot.LevelSetMesher([N]*3).build(ls, ot.Interval([-2.5]*3, [2.5]*3), False, True)
+mesh1 = ot.LevelSetMesher([N]*3).build(ls, ot.Interval([-2.5]*3, [2.5]*3), False)
 print("t (mesh1)=", time() - t0, "s")
-mesh2 = ot.LevelSetMesher([3*N]*3).build(ls, ot.Interval([-2.5]*3, [2.5]*3), True, True)
+mesh2 = ot.LevelSetMesher([3*N]*3).build(ls, ot.Interval([-2.5]*3, [2.5]*3), True)
 print("t (mesh1+mesh2)=", time() - t0, "s")
 print("mesh1=", mesh1.getVerticesNumber(), "vertices and", mesh1.getSimplicesNumber(), "simplices")
 print("mesh2=", mesh2.getVerticesNumber(), "vertices and", mesh2.getSimplicesNumber(), "simplices")

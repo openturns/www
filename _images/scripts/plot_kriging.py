@@ -1,11 +1,10 @@
-from __future__ import print_function
 from openturns.viewer import View
 import openturns as ot
 
 sampleSize = 4
 dimension = 1
 
-f = ot.Function(['x'], ['y'], ['0.5*x^2 + sin(2.5*x)'])
+f = ot.SymbolicFunction(['x'], ['0.5*x^2 + sin(2.5*x)'])
 
 # Database
 xMin = -0.9

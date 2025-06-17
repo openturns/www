@@ -1,4 +1,3 @@
-from __future__ import print_function
 import openturns as ot
 from openturns.viewer import View
 from time import time
@@ -8,9 +7,9 @@ N = 100
 threshold = 1.0e-3
 
 # Create a domain
-f = ot.SymbolicFunction(["x0", "x1"], ["1.0 - (1.2 + cos(_pi * x0))^2 - (1.2 + cos(_pi * x1))^2"])
+f = ot.SymbolicFunction(["x0", "x1"], ["1.0 - (1.2 + cos(pi_ * x0))^2 - (1.2 + cos(pi_ * x1))^2"])
 level = 0.0
-domain = ot.LevelSet(f, level)
+domain = ot.LevelSet(f, ot.Less(), level)
 interval = ot.Interval([-A]*2, [A]*2)
 domain.setLowerBound(interval.getLowerBound())
 domain.setUpperBound(interval.getUpperBound())

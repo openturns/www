@@ -1,4 +1,3 @@
-from __future__ import print_function
 import openturns as ot
 from openturns.viewer import View
 from time import time
@@ -21,15 +20,16 @@ mesh = ot.IntervalMesher(discretization).build(interval)
 
 # Covariance model
 covariance = ot.TensorizedCovarianceModel([ot.SquaredExponential([0.2]*2, [0.3])]*2)
-process = ot.GaussianProcess(ot.TrendTransform(phi_func), covariance, mesh)
+trend = ot.TrendTransform(phi_func, mesh)
+process = ot.GaussianProcess(trend, covariance, mesh)
 field = process.getRealization()
-f = ot.Function(ot.P1LagrangeEvaluation(field))
-ot.ResourceMap.SetAsUnsignedInteger( "Field-LevelNumber", 64)
-ot.ResourceMap.SetAsScalar( "Field-ArrowRatio", 0.01)
-ot.ResourceMap.SetAsScalar( "Field-ArrowScaling", 0.03)
+f = ot.P1LagrangeEvaluation(field)
+ot.ResourceMap.SetAsUnsignedInteger("Field-LevelNumber", 64)
+ot.ResourceMap.SetAsScalar("Field-ArrowRatio", 0.01)
+ot.ResourceMap.SetAsScalar("Field-ArrowScaling", 0.03)
 graph = field.draw()
 print("f=", f.getInputDimension(), "->", f.getOutputDimension())
-phi = ot.ValueFunction(f)
+phi = ot.ValueFunction(f, mesh)
 solver = ot.RungeKutta(phi)
 initialState = [0.5, 1.0]
 timeGrid = ot.RegularGrid(0.0, 0.1, 10000)
