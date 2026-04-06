@@ -3,6 +3,7 @@ Script to produce the copula image on the www front page.
 Adapted from:
 http://openturns.github.io/openturns/latest/auto_data_analysis/statistical_tests/plot_test_copula.html
 """
+
 # %%
 import openturns as ot
 import openturns.viewer as viewer
@@ -20,9 +21,9 @@ sample = dist.getSample(N)
 
 # %%
 estimated = ot.GumbelCopulaFactory().build(sample)
-print(estimated)
 
 
+# %%
 def fromColorToAlphaColor(color, a):
     r, g, b = ot.Drawable.ConvertToRGB(color)
     h, s, v = ot.Drawable.ConvertFromRGBIntoHSV(r, g, b)
@@ -30,6 +31,7 @@ def fromColorToAlphaColor(color, a):
     return newColor
 
 
+# %%
 palette = ot.Drawable.BuildDefaultPalette(2)
 cloudColor = fromColorToAlphaColor(palette[0], 0.5)
 copulaColor = palette[1]
@@ -40,16 +42,14 @@ ranksTransf = ot.MarginalTransformationEvaluation(
     marginals, ot.MarginalTransformationEvaluation.FROM
 )
 rankSample = ranksTransf(sample)
-rankCloud = ot.Cloud(rankSample, "blue", "plus", "sample")
+rankCloud = ot.Cloud(rankSample, "blue", "plus", "")
 rankCloud.setPointStyle("bullet")
 rankCloud.setColor(cloudColor)
 
 # %%
-myGraph = ot.Graph(
-    f"Parametric estimation of the copula, n = {N}", r"$u_1$", r"$u_2$", True, "topleft"
-)
-myGraph.setLegendPosition("bottomright")
-myGraph.add(rankCloud)
+graph = ot.Graph(f"", r"$u_1$", r"$u_2$", True, "topleft")
+graph.setLegendPosition("bottomright")
+graph.add(rankCloud)
 
 
 # %%
@@ -61,12 +61,13 @@ pointNumber = [201] * 2
 graphCop = estimated.drawPDF(minPoint, maxPoint, pointNumber)
 contour = graphCop.getDrawable(0).getImplementation()
 levels = contour.getLevels()
-contour.setLegend("Gumbel")
+contour.setLegend("")
 contour.setColor(copulaColor)
 contour.setLevels(levels)
-myGraph.add(contour)
+contour.setColorBarPosition("")
+graph.add(contour)
 
-
+# %%
 figure_width_in_pixels = 400
 figure_height_in_pixels = 280
 dpi = 90
@@ -74,17 +75,21 @@ figure_width_in_inches = figure_width_in_pixels / dpi
 figure_height_in_pixels = figure_height_in_pixels / dpi
 
 
+# %%
+delta = 0.1
+graph.setBoundingBox(ot.Interval([-delta, -delta], [1.0 + delta, 1.0 + delta]))
 view = viewer.View(
-    myGraph,
+    graph,
     figure_kw={
         "figsize": (figure_width_in_inches, figure_height_in_pixels),
         "dpi": dpi,
     },
-    legend_kw={"bbox_to_anchor": (1.0, 1.0), "loc": "upper left"},
+    legend_kw={"bbox_to_anchor": (1.3, 1.0), "loc": "upper left"},
 )
-plt.subplots_adjust(wspace=0.5, hspace=0.5, bottom=0.22, right=0.7)
-plt.axis("equal")
+plt.subplots_adjust(wspace=0.5, hspace=0.5)
 view.save(
     "../../_static/img/data_analysis.png",
     dpi=dpi,
 )
+
+# %%
