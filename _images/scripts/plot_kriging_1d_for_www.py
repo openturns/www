@@ -94,8 +94,7 @@ print(f"Quantile of level alpha = {alpha}: {quantileAlpha}")
 
 # %%
 sqrt = ot.SymbolicFunction(["x"], ["sqrt(x)"])
-epsilon = ot.Sample(n_test, [1.0e-8])
-conditionalVariance = result.getConditionalMarginalVariance(x_test) + epsilon
+conditionalVariance = result.getConditionalMarginalVariance(x_test)
 conditionalSigma = sqrt(conditionalVariance)
 
 
@@ -115,19 +114,21 @@ def computeBoundsConfidenceInterval(quantileAlpha):
 
 
 # %%
+def fromColorToAlphaColor(color, a):
+    r, g, b = ot.Drawable.ConvertToRGB(color)
+    h, s, v = ot.Drawable.ConvertFromRGBIntoHSV(r, g, b)
+    newColor = ot.Polygon.ConvertFromHSVA(h, s, v, a)
+    return newColor
 
-
-def plot_kriging_bounds(dataLower, dataUpper, n_test, color):
+# %%
+def plot_kriging_bounds(x_test, dataLower, dataUpper, color):
     """
     From two lists containing the lower and upper bounds of the region,
     create a PolygonArray.
     Default color is green given by HSV values in color list.
     """
-    vLow = [[x_test[i, 0], dataLower[i, 0]] for i in range(n_test)]
-    vUp = [[x_test[i, 0], dataUpper[i, 0]] for i in range(n_test)]
-    polyData = [[vLow[i], vLow[i + 1], vUp[i + 1], vUp[i]] for i in range(n_test - 1)]
-    polygonList = [ot.Polygon(polyData[i], color, color) for i in range(n_test - 1)]
-    boundsPoly = ot.PolygonArray(polygonList)
+    boundsPoly = ot.Polygon.FillBetween(x_test, dataLower, dataUpper)
+    boundsPoly.setColor(color)
     return boundsPoly
 
 
@@ -137,14 +138,15 @@ colorDataTrain = palette[0]
 colorDataTest = palette[1]
 colorKriging = palette[2]
 colorKrigingBounds = ot.Drawable.ConvertFromName("gray")
+colorKrigingBounds = fromColorToAlphaColor(colorKrigingBounds, 0.4)
 
 # %%
-graph = ot.Graph(f"Kriging, n={n_train}", "", "", True, "")
+graph = ot.Graph(f"", "", "", True, "")
 alpha = 0.95
 quantileAlpha = computeQuantileAlpha(alpha)
 vLow, vUp = computeBoundsConfidenceInterval(quantileAlpha)
-boundsPoly = plot_kriging_bounds(vLow, vUp, n_test, colorKrigingBounds)
-boundsPoly.setLegend(f" {100.0 * alpha}%% bounds")
+boundsPoly = plot_kriging_bounds(x_test, vLow, vUp, colorKrigingBounds)
+boundsPoly.setLegend(f" {100.0 * alpha:.0f}%")
 graph.add(boundsPoly)
 
 graph.add(plot_data_test(x_test, y_test, colorDataTest))
