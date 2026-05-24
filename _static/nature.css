@@ -1185,10 +1185,9 @@ div.navbar ul.dropdown-menu li a.btn {
 
 .navbar .btn-group {
   margin: 0px;
-  vertical-align: middle;
   padding: 0;
   padding-left: 4px;
-  font-size: 8px;
+  font-size: 14px;
 }
 
 .navbar .btn-group .btn {
@@ -1252,7 +1251,6 @@ li#other-versions {
 
 .navbar li.btn-li {
   margin: 0;
-  vertical-align: middle;
   padding: 4px 0px 5px 0px;
 }
 
